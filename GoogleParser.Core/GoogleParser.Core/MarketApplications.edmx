@@ -1,0 +1,126 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<!-- EF Runtime content -->
+<edmx:Runtime>
+<!-- SSDL content -->
+<edmx:StorageModels>
+<Schema Namespace="MarketApplicationsModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MarketApplicationsModelStoreContainer">
+    <EntitySet Name="AppCard" EntityType="MarketApplicationsModel.Store.AppCard" store:Type="Tables" />
+    <EntitySet Name="RegistratorChanges" EntityType="MarketApplicationsModel.Store.RegistratorChanges" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="AppCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="2048" />
+    <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="2048" />
+    <Property Name="DeveloperName" Type="nvarchar" MaxLength="2048" />
+    <Property Name="DeveloperEmail" Type="nvarchar" MaxLength="2048" />
+    <Property Name="CreatedUtcDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedUtcDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeveloperPhysicalAddress" Type="nvarchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="RegistratorChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ObjectId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EntityName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="PropertyName" Type="nvarchar" MaxLength="256" />
+    <Property Name="OldValue" Type="nvarchar" MaxLength="2048" />
+    <Property Name="NewValue" Type="nvarchar" MaxLength="2048" />
+    <Property Name="EntityState" Type="int" Nullable="false" />
+    <Property Name="CreatedUtcDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedUtcDate" Type="datetime" />
+  </EntityType>
+</Schema>
+</edmx:StorageModels>
+<!-- CSDL content -->
+<edmx:ConceptualModels>
+<Schema Namespace="MarketApplicationsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MarketApplicationsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="DbAppCards" EntityType="MarketApplicationsModel.DbAppCard" />
+    <EntitySet Name="DbRegistratorChanges" EntityType="MarketApplicationsModel.DbRegistratorChanges" />
+  </EntityContainer>
+  <EntityType Name="DbAppCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="2048" Unicode="true" FixedLength="false" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="2048" Unicode="true" FixedLength="false" />
+    <Property Name="DeveloperName" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
+    <Property Name="DeveloperEmail" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedUtcDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedUtcDate" Type="DateTime" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="DeveloperPhysicalAddress" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DbRegistratorChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ObjectId" Type="Guid" Nullable="false" />
+    <Property Name="EntityName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyName" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="OldValue" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
+    <Property Name="NewValue" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
+    <Property Name="EntityState" Type="Int32" Nullable="false" />
+    <Property Name="CreatedUtcDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedUtcDate" Type="DateTime" />
+  </EntityType>
+</Schema>
+</edmx:ConceptualModels>
+<!-- C-S mapping content -->
+<edmx:Mappings>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MarketApplicationsModelStoreContainer" CdmEntityContainer="MarketApplicationsEntities">
+    <EntitySetMapping Name="DbAppCards">
+      <EntityTypeMapping TypeName="MarketApplicationsModel.DbAppCard">
+        <MappingFragment StoreEntitySet="AppCard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="DeveloperName" ColumnName="DeveloperName" />
+          <ScalarProperty Name="DeveloperEmail" ColumnName="DeveloperEmail" />
+          <ScalarProperty Name="CreatedUtcDate" ColumnName="CreatedUtcDate" />
+          <ScalarProperty Name="UpdatedUtcDate" ColumnName="UpdatedUtcDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DeveloperPhysicalAddress" ColumnName="DeveloperPhysicalAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DbRegistratorChanges">
+      <EntityTypeMapping TypeName="MarketApplicationsModel.DbRegistratorChanges">
+        <MappingFragment StoreEntitySet="RegistratorChanges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="EntityState" ColumnName="EntityState" />
+          <ScalarProperty Name="CreatedUtcDate" ColumnName="CreatedUtcDate" />
+          <ScalarProperty Name="UpdatedUtcDate" ColumnName="UpdatedUtcDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
+</edmx:Mappings>
+</edmx:Runtime>
+<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="True" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
+<edmx:Diagrams >
+      <Diagram DiagramId="36c5eaa9ea9e417db2ac7de563259f57" Name="Diagram1">
+        <EntityTypeShape EntityType="MarketApplicationsModel.DbAppCard" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketApplicationsModel.DbRegistratorChanges" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+</edmx:Designer></edmx:Edmx>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5A34A30-6778-4035-BA9A-D499F59F19A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Svyaznoy.Core</RootNamespace>
+    <AssemblyName>Svyaznoy.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\Svyaznoy.BIP\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Svyaznoy.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Svyaznoy.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net40\EntityFramework.SqlServerCompact.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authorization\IAuthentication.cs" />
+    <Compile Include="Authorization\UserIdentity.cs" />
+    <Compile Include="Crypto\Cypher.cs" />
+    <Compile Include="Entites\DataFile.cs" />
+    <Compile Include="Entites\EncodingWindows1251.cs" />
+    <Compile Include="Entites\Interval.cs" />
+    <Compile Include="Entites\Pair.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\DataRowExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\DateExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\PathExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Extensions\XmlSerializerHelper.cs" />
+    <Compile Include="Hash\BCrypt.cs" />
+    <Compile Include="Hash\Md5Hash.cs" />
+    <Compile Include="Hash\SaltParseException.cs" />
+    <Compile Include="Hash\ShortCodeGenerator.cs" />
+    <Compile Include="LinqKit\ExpandableQuery.cs" />
+    <Compile Include="LinqKit\ExpressionExpander.cs" />
+    <Compile Include="LinqKit\ExpressionVisitor.cs" />
+    <Compile Include="LinqKit\LinqExtensions.cs" />
+    <Compile Include="LinqKit\Linq.cs" />
+    <Compile Include="LinqKit\PredicateBuilder.cs" />
+    <Compile Include="Localization\DefaultTranslator.cs" />
+    <Compile Include="Localization\TranslationExtensions.cs" />
+    <Compile Include="Localization\ITranslator.cs" />
+    <Compile Include="Localization\TextEnum.cs" />
+    <Compile Include="Localization\TranslationAttribute.cs" />
+    <Compile Include="Log\AggregateLogger.cs" />
+    <Compile Include="Log\ALogger.cs" />
+    <Compile Include="Log\ILogger.cs" />
+    <Compile Include="Log\LoggerAppConfig.cs" />
+    <Compile Include="Log\LoggerLog4Net.cs" />
+    <Compile Include="Log\LogLevel.cs" />
+    <Compile Include="Log\SmtpLogger.cs" />
+    <Compile Include="Log\StopwatchRunner.cs" />
+    <Compile Include="Log\TraceLogger.cs" />
+    <Compile Include="Mail\Email.cs" />
+    <Compile Include="Model\Context.cs" />
+    <Compile Include="Model\DateInterval.cs" />
+    <Compile Include="Model\IEntity.cs" />
+    <Compile Include="Authorization\IUserIdentity.cs" />
+    <Compile Include="Authorization\UserRoleType.cs" />
+    <Compile Include="Model\EntityInventory.cs" />
+    <Compile Include="Model\IHistoryDataInventory.cs" />
+    <Compile Include="Model\InventoryCache.cs" />
+    <Compile Include="Model\IRegistratorChanges.cs" />
+    <Compile Include="Model\ISqlInventory.cs" />
+    <Compile Include="Model\ModelExtensions.cs" />
+    <Compile Include="Model\IInventory.cs" />
+    <Compile Include="Model\Limit.cs" />
+    <Compile Include="Model\HistoryDataInventory.cs" />
+    <Compile Include="Model\OrderType.cs" />
+    <Compile Include="Model\SqlInventory.cs" />
+    <Compile Include="Model\StringSearchOptions.cs" />
+    <Compile Include="MVC\MefHttpApplication.cs" />
+    <Compile Include="MVC\SitemapIndexActionResult.cs" />
+    <Compile Include="MVC\SitemapActionResult.cs" />
+    <Compile Include="MVC\ViewRenderer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Compositor.cs" />
+    <Compile Include="Web\MimeType.cs" />
+    <Compile Include="Web\Model\ProcessResult.cs" />
+    <Compile Include="Web\Model\PublicException.cs" />
+    <Compile Include="Web\Request\RequestContentType.cs" />
+    <Compile Include="Web\Request\HttpMethod.cs" />
+    <Compile Include="Web\Request\RequestCredentials.cs" />
+    <Compile Include="Web\Request\UserAgentHelper.cs" />
+    <Compile Include="Web\Soap\SoapClient.cs" />
+    <Compile Include="Web\Soap\ReverserExtension.cs" />
+    <Compile Include="Web\View\LinkHelper.cs" />
+    <Compile Include="Web\WebExtension.cs" />
+    <Compile Include="Web\Request\WebRequestHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Web\Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
